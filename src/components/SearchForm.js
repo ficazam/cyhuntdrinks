@@ -1,21 +1,30 @@
 import React, { useEffect, useRef } from "react";
 import { useGlobalContext } from "../context";
 
+
 export const SearchForm = () => {
   const { setTerm } = useGlobalContext();
   const searchVal = useRef("");
 
   useEffect(() => {
-      searchVal.current.focus();
-  },[]);
+    searchVal.current.value = "";
+    searchVal.current.focus();
+  }, []);
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
+    searchVal.current.value = "";
+    setTerm('');
   };
-  
+
   const searchCocktail = () => {
-      setTerm(searchVal.current.value);
+    setTerm(searchVal.current.value);
   };
+
+  const eraser = (e) => {
+    setTerm('');
+    searchVal.current.value = '';
+  }
 
   return (
     <section className="section search">
@@ -28,6 +37,7 @@ export const SearchForm = () => {
             autoComplete="off"
             ref={searchVal}
             onChange={searchCocktail}
+            onBlur={eraser}
           />
         </div>
       </form>

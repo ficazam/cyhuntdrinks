@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../logo.svg";
 
 export const Navbar = () => {
+
   return (
     <nav className="navbar">
       <div className="nav-center">

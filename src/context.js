@@ -5,7 +5,7 @@ const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 export const AppProvider = (props) => {
   const [loading, setLoading] = useState(false);
-  const [term, setTerm] = useState(" ");
+  const [term, setTerm] = useState("");
   const [cocktail, setCocktail] = useState([]);
 
 
